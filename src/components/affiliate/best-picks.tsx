@@ -1,10 +1,9 @@
-import type { CSSProperties } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { AFFILIATE_DATA, type AffiliateProduct } from "@/i18n/affiliate-data";
 import { AfSectionHead } from "./af-section-head";
-import { AfBadge } from "./af-badge";
 import { AfIcon } from "./af-icon";
+import { AfProductCard } from "./af-product-card";
 
 type Props = { t: Dictionary; locale: Locale };
 
@@ -13,7 +12,6 @@ const PICK_INDICES = [0, 1, 3, 7, 2, 9] as const;
 
 export function AfBestPicksSection({ t, locale }: Props) {
   const s = t.affiliate.sections.bestPicks;
-  const ui = t.affiliate.ui;
   const labels = [
     s.labels.bestOverall,
     s.labels.bestBudget,
@@ -52,48 +50,16 @@ export function AfBestPicksSection({ t, locale }: Props) {
         />
 
         <div className="af-grid-3">
-          {rows.map((row, i) => {
-            const phStyle = {
-              "--phx": row.p.ph.a,
-              "--phy": row.p.ph.b,
-              position: "absolute",
-              inset: 0,
-            } as CSSProperties;
-            return (
-              <article key={i} className="af-pick" aria-label={row.p.name[locale]}>
-                <div className="af-pick__head">
-                  <AfBadge variant="editor">{row.label}</AfBadge>
-                  <meter
-                    className="af-pick__score"
-                    value={row.p.score}
-                    min={0}
-                    max={10}
-                    aria-label={`${ui.whyWePicked} · ${row.p.score.toFixed(1)} / 10`}
-                  >
-                    {row.p.score.toFixed(1)}
-                  </meter>
-                </div>
-                <div className="af-pick__media">
-                  <div className="af-product__ph" style={phStyle} />
-                </div>
-                <div>
-                  <div className="af-product__cat">{row.p.cat[locale]}</div>
-                  <h3 className="af-h3" style={{ marginTop: 4 }}>{row.p.name[locale]}</h3>
-                </div>
-                <p className="af-pick__why">{row.p.why[locale]}</p>
-                <div className="af-pick__bottom">
-                  <span className="af-product__price">{row.p.priceLow}</span>
-                  <a
-                    href="#"
-                    className="af-deal__cta"
-                    rel="sponsored nofollow noopener"
-                  >
-                    {ui.viewDeal} <AfIcon name="arrow" size={12} />
-                  </a>
-                </div>
-              </article>
-            );
-          })}
+          {rows.map((row) => (
+            <AfProductCard
+              key={row.p.id}
+              variant="pick"
+              product={row.p}
+              pickLabel={row.label}
+              t={t}
+              locale={locale}
+            />
+          ))}
         </div>
       </div>
     </section>

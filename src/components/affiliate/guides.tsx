@@ -1,9 +1,9 @@
-import type { CSSProperties } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { AFFILIATE_DATA } from "@/i18n/affiliate-data";
 import { AfSectionHead } from "./af-section-head";
 import { AfIcon } from "./af-icon";
+import { AfArticleCard } from "./af-article-card";
 
 type Props = { t: Dictionary; locale: Locale };
 
@@ -36,25 +36,9 @@ export function AfGuidesSection({ t, locale }: Props) {
         />
 
         <div className="af-grid-3">
-          {articles.map((a) => {
-            const style = { "--phx": a.ph.a, "--phy": a.ph.b } as CSSProperties;
-            return (
-              <article key={a.id} className="af-article" aria-label={a.title[locale]}>
-                <div className="af-article__cover" style={style} />
-                <div className="af-article__body">
-                  <div className="af-article__meta">
-                    <span className="cat">{a.cat[locale]}</span>
-                    <span>{a.read} {ui.readTime}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{a.updated[locale]}</span>
-                  </div>
-                  <h3 className="af-article__title">{a.title[locale]}</h3>
-                  <p className="af-article__excerpt">{a.excerpt[locale]}</p>
-                  <a href="#guides" className="af-article__read">{ui.readGuide} →</a>
-                </div>
-              </article>
-            );
-          })}
+          {articles.map((a) => (
+            <AfArticleCard key={a.id} article={a} t={t} locale={locale} />
+          ))}
         </div>
       </div>
     </section>

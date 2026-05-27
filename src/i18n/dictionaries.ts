@@ -80,6 +80,35 @@ export type AffiliateDict = {
     };
     testimonials: { eyebrow: string; titlePre: string; titleIt: string; titlePost: string };
   };
+  productDetail: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    galleryAria: string;
+    thumbAria: string;
+    reviewsCount: string;
+    editorScoreAria: string;
+    priceFromLabel: string;
+    whereToBuyTitle: string;
+    whereToBuyLead: string;
+    whereToBuyHeads: { merchant: string; price: string; coupon: string; shipping: string; cta: string };
+    aboutTitle: string;
+    prosTitle: string;
+    consTitle: string;
+    bestForTitle: string;
+    specsTitle: string;
+    specLabels: { scale: string; material: string; size: string; weight: string; origin: string; power: string };
+    faqTitle: string;
+    relatedTitle: string;
+    relatedLead: string;
+    pricesMayChange: string;
+    seeAllSellers: string;
+    saveAria: string;
+    pickedForPrefix: string;
+    bestSeller: string;
+    buybarCta: string;
+    noCoupon: string;
+    noShipping: string;
+  };
   editor: { quote: string; signature: string; avatar: string };
   newsletter: {
     eyebrow: string;
@@ -507,6 +536,48 @@ const vi: Dictionary = {
         titlePost: ".",
       },
     },
+    productDetail: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      galleryAria: "Bộ ảnh sản phẩm",
+      thumbAria: "Ảnh thu nhỏ",
+      reviewsCount: "{n} đánh giá",
+      editorScoreAria: "Điểm biên tập",
+      priceFromLabel: "Từ",
+      whereToBuyTitle: "Mua ở đâu",
+      whereToBuyLead: "Chúng tôi so giá thực giữa các nền tảng, ưu tiên hiển thị nơi đang có giá tốt nhất.",
+      whereToBuyHeads: {
+        merchant: "Nền tảng",
+        price: "Giá",
+        coupon: "Ưu đãi",
+        shipping: "Vận chuyển",
+        cta: "Đến nơi bán",
+      },
+      aboutTitle: "Về sản phẩm",
+      prosTitle: "Ưu điểm",
+      consTitle: "Hạn chế",
+      bestForTitle: "Phù hợp cho",
+      specsTitle: "Thông số kỹ thuật",
+      specLabels: {
+        scale: "Tỉ lệ",
+        material: "Chất liệu",
+        size: "Kích thước",
+        weight: "Trọng lượng",
+        origin: "Xuất xứ",
+        power: "Nguồn điện",
+      },
+      faqTitle: "Câu hỏi thường gặp",
+      relatedTitle: "Sản phẩm liên quan",
+      relatedLead: "Cùng phân khúc, được biên tập gợi ý xem song song.",
+      pricesMayChange: "Giá có thể thay đổi theo thời điểm — kiểm tra lại trên nền tảng trước khi đặt.",
+      seeAllSellers: "Xem tất cả nơi bán",
+      saveAria: "Lưu sản phẩm",
+      pickedForPrefix: "Editor Pick",
+      bestSeller: "Đề xuất tốt nhất",
+      buybarCta: "Xem nơi bán",
+      noCoupon: "—",
+      noShipping: "—",
+    },
     editor: {
       quote: "Mỗi món bạn thấy ở đây đều phải trả lời được câu này: nếu là tiền của mình, mình có mua không?",
       signature: "— LINH · BIÊN TẬP TRƯỞNG",
@@ -841,6 +912,48 @@ const en: Dictionary = {
         titleIt: "collectors",
         titlePost: ".",
       },
+    },
+    productDetail: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      galleryAria: "Product gallery",
+      thumbAria: "Thumbnail",
+      reviewsCount: "{n} reviews",
+      editorScoreAria: "Editor score",
+      priceFromLabel: "From",
+      whereToBuyTitle: "Where to buy",
+      whereToBuyLead: "We track real prices across platforms and surface the best one first.",
+      whereToBuyHeads: {
+        merchant: "Merchant",
+        price: "Price",
+        coupon: "Coupon",
+        shipping: "Shipping",
+        cta: "Go to store",
+      },
+      aboutTitle: "About this product",
+      prosTitle: "Pros",
+      consTitle: "Cons",
+      bestForTitle: "Best for",
+      specsTitle: "Specifications",
+      specLabels: {
+        scale: "Scale",
+        material: "Material",
+        size: "Size",
+        weight: "Weight",
+        origin: "Origin",
+        power: "Power",
+      },
+      faqTitle: "Frequently asked",
+      relatedTitle: "You may also like",
+      relatedLead: "Same category, editor-paired to browse side by side.",
+      pricesMayChange: "Prices change over time — re-check on the platform before buying.",
+      seeAllSellers: "See all sellers",
+      saveAria: "Save product",
+      pickedForPrefix: "Editor Pick",
+      bestSeller: "Top pick",
+      buybarCta: "View Deal",
+      noCoupon: "—",
+      noShipping: "—",
     },
     editor: {
       quote: "Every piece you see here has to answer one question: would I buy this with my own money?",
