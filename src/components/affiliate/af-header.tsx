@@ -57,7 +57,7 @@ export function AfHeader({ t, locale, savedCount = 12 }: Props) {
           <Link href={`/${locale}/best-picks`}>{n.best}</Link>
           <Link href={`/${locale}/deals`}>{n.deals}</Link>
           <Link href={`/${locale}/guides`}>{n.guides}</Link>
-          <a href="#compare">{n.compare}</a>
+          <Link href={`/${locale}/compare`}>{n.compare}</Link>
         </nav>
 
         <div className="af-actions">

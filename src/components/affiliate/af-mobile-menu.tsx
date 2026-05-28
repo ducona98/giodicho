@@ -50,7 +50,7 @@ export function AfMobileMenu({ open, onClose, t, locale }: Props) {
         <Link href={`/${locale}/best-picks`} onClick={onClose}>{n.best}</Link>
         <Link href={`/${locale}/deals`} onClick={onClose}>{n.deals}</Link>
         <Link href={`/${locale}/guides`} onClick={onClose}>{n.guides}</Link>
-        <a href="#compare" onClick={onClose}>{n.compare}</a>
+        <Link href={`/${locale}/compare`} onClick={onClose}>{n.compare}</Link>
       </nav>
     </div>
   );

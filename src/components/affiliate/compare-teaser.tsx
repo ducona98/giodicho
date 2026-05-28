@@ -60,14 +60,18 @@ export function AfCompareTeaser({ t, locale }: Props) {
             <div className="af-product__name">{b.name[locale]}</div>
           </div>
           <div className="af-compare-vs" aria-hidden="true">{s.plusLabel}</div>
-          <div className="af-compare-slot" aria-label={ui.addProduct}>
+          <a
+            href={`/${locale}/compare`}
+            className="af-compare-slot"
+            aria-label={ui.addProduct}
+          >
             <AfIcon name="plus" size={24} />
             {ui.addProduct}
-          </div>
+          </a>
         </div>
 
         <div className="af-row af-mt-24" style={{ justifyContent: "center" }}>
-          <a href="#compare" className="af-btn af-btn--accent">
+          <a href={`/${locale}/compare`} className="af-btn af-btn--accent">
             {ui.compareNow} <AfIcon name="arrow" size={14} />
           </a>
         </div>

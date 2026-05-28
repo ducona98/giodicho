@@ -226,6 +226,34 @@ export type AffiliateDict = {
     faqTitle: string;
     disclosureNote: string;
   };
+  comparePage: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    selectorTitle: string;
+    pickerTitle: string;
+    pickerEmpty: string;
+    addProduct: string;
+    removeAria: string;
+    maxNote: string;
+    recommendedLabel: string;
+    rowLabels: {
+      score: string;
+      rating: string;
+      price: string;
+      bestFor: string;
+      style: string;
+      merchants: string;
+    };
+    prosConsTitle: string;
+    alternativesTitle: string;
+    alternativesLead: string;
+    emptyTitle: string;
+    emptyBody: string;
+  };
   editor: { quote: string; signature: string; avatar: string };
   newsletter: {
     eyebrow: string;
@@ -851,6 +879,34 @@ const vi: Dictionary = {
       faqTitle: "Câu hỏi thường gặp",
       disclosureNote: "Bài viết có chứa liên kết affiliate.",
     },
+    comparePage: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      eyebrow: "SO SÁNH",
+      title: "So sánh",
+      titleAccent: "cạnh nhau",
+      lead: "Chọn 2-4 sản phẩm và xem mọi thông số xếp cạnh nhau — kèm gợi ý của biên tập để chọn nhanh.",
+      selectorTitle: "Đang so sánh",
+      pickerTitle: "Thêm sản phẩm để so sánh",
+      pickerEmpty: "Đã thêm hết sản phẩm khả dụng.",
+      addProduct: "Thêm sản phẩm",
+      removeAria: "Bỏ khỏi so sánh",
+      maxNote: "So sánh tối đa 4 sản phẩm.",
+      recommendedLabel: "Biên tập khuyên chọn",
+      rowLabels: {
+        score: "Điểm biên tập",
+        rating: "Đánh giá",
+        price: "Giá tham khảo",
+        bestFor: "Phù hợp cho",
+        style: "Phong cách",
+        merchants: "Nơi bán",
+      },
+      prosConsTitle: "Ưu & nhược điểm",
+      alternativesTitle: "Lựa chọn thay thế",
+      alternativesLead: "Cùng phân khúc, đáng cân nhắc trước khi quyết định.",
+      emptyTitle: "Chọn ít nhất 2 sản phẩm",
+      emptyBody: "Thêm sản phẩm để bắt đầu so sánh cạnh nhau.",
+    },
     editor: {
       quote: "Mỗi món bạn thấy ở đây đều phải trả lời được câu này: nếu là tiền của mình, mình có mua không?",
       signature: "— LINH · BIÊN TẬP TRƯỞNG",
@@ -1383,6 +1439,34 @@ const en: Dictionary = {
       relatedLead: "Keep reading to choose with confidence.",
       faqTitle: "Frequently asked questions",
       disclosureNote: "This article contains affiliate links.",
+    },
+    comparePage: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      eyebrow: "COMPARE",
+      title: "Compare",
+      titleAccent: "side by side",
+      lead: "Pick 2-4 products and see every spec lined up — with an editor's verdict so you can decide fast.",
+      selectorTitle: "Comparing",
+      pickerTitle: "Add a product to compare",
+      pickerEmpty: "All available products are already added.",
+      addProduct: "Add product",
+      removeAria: "Remove from comparison",
+      maxNote: "Compare up to 4 products.",
+      recommendedLabel: "Editor's pick",
+      rowLabels: {
+        score: "Editor score",
+        rating: "Rating",
+        price: "Reference price",
+        bestFor: "Best for",
+        style: "Style",
+        merchants: "Where to buy",
+      },
+      prosConsTitle: "Pros & cons",
+      alternativesTitle: "Alternatives",
+      alternativesLead: "Same tier, worth a look before you decide.",
+      emptyTitle: "Pick at least 2 products",
+      emptyBody: "Add products to start comparing side by side.",
     },
     editor: {
       quote: "Every piece you see here has to answer one question: would I buy this with my own money?",
