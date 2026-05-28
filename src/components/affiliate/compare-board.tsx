@@ -113,6 +113,24 @@ export function AfCompareBoard({ products, articles, t, locale }: Props) {
             </button>
           )}
         </div>
+        {items.length > 0 && (
+          <div className="af-cmp-chosen">
+            {items.map((p) => (
+              <span className="af-cmp-chip" key={p.id}>
+                {p.name[locale]}
+                <button
+                  type="button"
+                  className="af-cmp-chip__x"
+                  disabled={!canRemove}
+                  aria-label={`${cp.removeAria} — ${p.name[locale]}`}
+                  onClick={() => removeProduct(p.id)}
+                >
+                  <AfIcon name="x" size={12} />
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
         {pickerOpen && canAdd && (
           <div className="af-cmp-picker" role="group" aria-label={cp.pickerTitle}>
             <div className="af-cmp-picker__title">{cp.pickerTitle}</div>

@@ -2628,6 +2628,23 @@ select.af-sort-select:focus-visible {
 }
 .af-cmp-selector__note { font-size: 13px; color: var(--text-3); margin: 0; }
 
+.af-cmp-chosen { display: flex; flex-wrap: wrap; gap: 10px; }
+.af-cmp-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 8px 7px 14px; border-radius: 999px;
+  border: 1px solid var(--border-strong); background: var(--surface);
+  font-size: 13px; font-weight: 500; color: var(--text);
+}
+.af-cmp-chip__x {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 999px;
+  border: 0; background: var(--surface-2); color: var(--text-2);
+  cursor: pointer;
+}
+.af-cmp-chip__x:hover:not(:disabled) { background: var(--danger); color: #fff; }
+.af-cmp-chip__x:disabled { opacity: 0.4; cursor: not-allowed; }
+.af-cmp-chip__x:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
 .af-cmp-picker {
   border: 1px solid var(--border);
   background: var(--surface);
@@ -2669,11 +2686,12 @@ select.af-sort-select:focus-visible {
 }
 .af-cmp-col__head { position: relative; display: flex; flex-direction: column; gap: 8px; }
 .af-cmp-col__remove {
-  position: absolute; top: 0; right: 0;
+  position: absolute; top: 8px; right: 8px; z-index: 2;
   display: inline-flex; align-items: center; justify-content: center;
-  width: 28px; height: 28px; border-radius: 999px;
+  width: 30px; height: 30px; border-radius: 999px;
   border: 1px solid var(--border); background: var(--surface);
   color: var(--text-2); cursor: pointer;
+  box-shadow: var(--shadow-md);
 }
 .af-cmp-col__remove:hover { color: var(--text); border-color: var(--text-3); }
 .af-cmp-col__remove:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
@@ -2725,7 +2743,19 @@ select.af-sort-select:focus-visible {
   background: var(--surface); padding: 18px 20px;
   min-width: 0;
 }
-.af-cmp-proscons__name { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+.af-cmp-proscons__name { font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+/* Inside a narrow compare column, stack pros over cons and drop the inner
+   card chrome so the lists stay readable at 3-4 products. */
+.af-cmp-proscons .af-prosCons { grid-template-columns: 1fr; gap: 14px; }
+.af-cmp-proscons .af-prosCons__col {
+  border: 0; border-radius: 0; padding: 0; background: none;
+}
+.af-cmp-proscons .af-prosCons__col + .af-prosCons__col {
+  border-top: 1px solid var(--border); padding-top: 14px;
+}
+.af-cmp-proscons .af-prosCons__col h4 { margin: 0 0 10px; }
+.af-cmp-proscons .af-prosCons__col ul { gap: 9px; }
+.af-cmp-proscons .af-prosCons__col li { font-size: 13.5px; padding-left: 22px; }
 
 @media (max-width: 1023px) {
   .af-cmp-matrix,
