@@ -34,6 +34,7 @@ export function AfCategoriesSection({ t, locale }: Props) {
               t={t}
               locale={locale}
               featured={i === 0}
+              href={`/${locale}/c/${c.slug}`}
             />
           ))}
         </div>

@@ -54,8 +54,8 @@ export function AfHeader({ t, locale, savedCount = 12 }: Props) {
         <nav className="af-nav" aria-label="Primary">
           <Link href={`/${locale}`} className="active">{n.home}</Link>
           <a href="#collections">{n.collections}</a>
-          <a href="#best-picks">{n.best}</a>
-          <a href="#deals">{n.deals}</a>
+          <Link href={`/${locale}/best-picks`}>{n.best}</Link>
+          <Link href={`/${locale}/deals`}>{n.deals}</Link>
           <a href="#guides">{n.guides}</a>
           <a href="#compare">{n.compare}</a>
         </nav>

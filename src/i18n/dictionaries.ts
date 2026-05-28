@@ -109,6 +109,93 @@ export type AffiliateDict = {
     noCoupon: string;
     noShipping: string;
   };
+  collection: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    introSuffix: string;
+    stats: { products: string; avgScore: string; priceRefresh: string };
+    priceRefreshValue: string;
+    filtersTitle: string;
+    filterToggle: string;
+    filterCloseAria: string;
+    groups: { merchant: string; badge: string; price: string; rating: string };
+    priceMin: string;
+    priceMax: string;
+    ratingOptions: { any: string; r90: string; r85: string; r80: string };
+    clearFilters: string;
+    resultCount: string;
+    sortLabel: string;
+    sortOptions: {
+      recommended: string;
+      priceAsc: string;
+      priceDesc: string;
+      rated: string;
+      deals: string;
+    };
+    emptyTitle: string;
+    emptyBody: string;
+    relatedTitle: string;
+    relatedLead: string;
+    guidesTitle: string;
+    guidesLead: string;
+    faqTitle: string;
+    faqs: { q: string; a: string }[];
+  };
+  bestPicks: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    stats: { k: string; v: string }[];
+    tabAll: string;
+    tabLabels: {
+      bestOverall: string;
+      bestBudget: string;
+      bestForGift: string;
+      bestForDesk: string;
+      bestLimited: string;
+      bestCute: string;
+    };
+    featuredEyebrow: string;
+    otherTitle: string;
+    altTitle: string;
+    altLead: string;
+    whyTitle: string;
+    whyLead: string;
+    whyPoints: string[];
+    criteriaTitle: string;
+    criteriaLead: string;
+    criteria: { title: string; desc: string }[];
+  };
+  dealsPage: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    updatedLabel: string;
+    stats: { k: string; v: string }[];
+    filters: {
+      today: string;
+      hot: string;
+      limited: string;
+      coupon: string;
+      budget: string;
+      gift: string;
+    };
+    resultCount: string;
+    couponPrefix: string;
+    endsPrefix: string;
+    emptyTitle: string;
+    emptyBody: string;
+    trustTitle: string;
+    trustPoints: string[];
+    relatedTitle: string;
+    relatedLead: string;
+  };
   editor: { quote: string; signature: string; avatar: string };
   newsletter: {
     eyebrow: string;
@@ -578,6 +665,128 @@ const vi: Dictionary = {
       noCoupon: "—",
       noShipping: "—",
     },
+    collection: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      introSuffix: "Tất cả sản phẩm dưới đây đều được biên tập kiểm tra thực tế, so giá giữa các nền tảng và chỉ giữ lại những lựa chọn thật sự đáng tiền.",
+      stats: { products: "Sản phẩm", avgScore: "Điểm trung bình", priceRefresh: "Cập nhật giá" },
+      priceRefreshValue: "24h",
+      filtersTitle: "Bộ lọc",
+      filterToggle: "Bộ lọc",
+      filterCloseAria: "Đóng bộ lọc",
+      groups: { merchant: "Nền tảng", badge: "Nhãn", price: "Khoảng giá (₫)", rating: "Điểm tối thiểu" },
+      priceMin: "Từ",
+      priceMax: "Đến",
+      ratingOptions: { any: "Tất cả", r90: "9.0+", r85: "8.5+", r80: "8.0+" },
+      clearFilters: "Xoá bộ lọc",
+      resultCount: "{n} sản phẩm",
+      sortLabel: "Sắp xếp theo",
+      sortOptions: {
+        recommended: "Gợi ý",
+        priceAsc: "Giá thấp đến cao",
+        priceDesc: "Giá cao đến thấp",
+        rated: "Điểm cao nhất",
+        deals: "Đang có deal",
+      },
+      emptyTitle: "Không có sản phẩm phù hợp",
+      emptyBody: "Thử nới rộng khoảng giá hoặc bỏ bớt bộ lọc để xem thêm lựa chọn.",
+      relatedTitle: "Bộ sưu tập liên quan",
+      relatedLead: "Khám phá thêm các nhóm sản phẩm khác trong cùng hệ sinh thái Giodicho.",
+      guidesTitle: "Hướng dẫn & review liên quan",
+      guidesLead: "Đọc trước khi mua — phân tích thật, không tô hồng.",
+      faqTitle: "Câu hỏi thường gặp",
+      faqs: [
+        {
+          q: "Giodicho chọn sản phẩm cho bộ sưu tập này như thế nào?",
+          a: "Biên tập viên mở hộp, đo đạc và đặt thử sản phẩm thật rồi mới chấm điểm. Chỉ những món đạt tiêu chí về chi tiết, độ bền và giá trị mới được giữ lại trong danh sách.",
+        },
+        {
+          q: "Giá hiển thị có chính xác không?",
+          a: "Giá được tham chiếu từ các nền tảng và có thể thay đổi theo thời điểm hoặc theo coupon. Hãy kiểm tra lại trên trang nền tảng trước khi đặt mua.",
+        },
+        {
+          q: "Mua qua link của Giodicho có đắt hơn không?",
+          a: "Không. Đây là affiliate link — bạn trả đúng giá niêm yết của nền tảng, Giodicho có thể nhận hoa hồng mà không làm tăng giá của bạn.",
+        },
+      ],
+    },
+    bestPicks: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      eyebrow: "GỢI Ý ĐÁNG MUA",
+      title: "Gợi ý mô hình",
+      titleAccent: "đáng mua",
+      lead: "Mỗi hạng mục chỉ có một winner do biên tập chọn — đã mở hộp, đo đạc và so giá thật. Không “top 10 SEO” rỗng tuếch, chỉ những món thật sự đáng tiền.",
+      stats: [
+        { k: "6", v: "HẠNG MỤC" },
+        { k: "12", v: "BIÊN TẬP VIÊN" },
+        { k: "24h", v: "CẬP NHẬT GIÁ" },
+      ],
+      tabAll: "Tất cả",
+      tabLabels: {
+        bestOverall: "Tốt nhất tổng thể",
+        bestBudget: "Đáng tiền nhất",
+        bestForGift: "Hợp làm quà",
+        bestForDesk: "Cho bàn làm việc",
+        bestLimited: "Hàng giới hạn",
+        bestCute: "Cute nhất",
+      },
+      featuredEyebrow: "ĐỀ XUẤT HÀNG ĐẦU",
+      otherTitle: "Các winner khác",
+      altTitle: "Lựa chọn thay thế",
+      altLead: "Cùng phân khúc với winner — cân nhắc nếu bạn muốn một hướng khác.",
+      whyTitle: "Vì sao chúng tôi chọn những món này",
+      whyLead: "Mỗi gợi ý đều phải vượt qua quy trình đánh giá thực tế trước khi lên danh sách.",
+      whyPoints: [
+        "Mở hộp và cầm thử sản phẩm thật, không chấm điểm qua ảnh nhà bán.",
+        "So giá giữa Shopee, TikTok Shop, Lazada và Official Store theo thời gian.",
+        "Chỉ giữ lại một winner cho mỗi nhu cầu — ưu tiên giá trị, độ bền và độ hoàn thiện.",
+      ],
+      criteriaTitle: "Tiêu chí đánh giá",
+      criteriaLead: "Bốn tiêu chí cố định áp dụng cho mọi sản phẩm trong danh sách.",
+      criteria: [
+        { title: "Chất lượng hoàn thiện", desc: "Độ chi tiết, nước sơn và độ chắc chắn khi quan sát ở khoảng cách trưng bày thật." },
+        { title: "Giá trị theo tầm giá", desc: "Cảm giác cầm tay và chất liệu so với mức giá — đáng tiền chứ không chỉ rẻ." },
+        { title: "Độ tin cậy nơi bán", desc: "Ưu tiên shop uy tín, giá minh bạch và chính sách đổi trả rõ ràng." },
+        { title: "Phù hợp nhu cầu", desc: "Mỗi winner được chọn cho một mục đích cụ thể: quà tặng, bàn làm việc, sưu tầm…" },
+      ],
+    },
+    dealsPage: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      eyebrow: "ƯU ĐÃI TUYỂN CHỌN",
+      title: "Ưu đãi",
+      titleAccent: "thật sự đáng để ý",
+      lead: "Chúng tôi chỉ đưa vào danh sách khi giá thực sự tốt — so giá giữa các nền tảng, không flash sale rởm và không đếm ngược giả.",
+      updatedLabel: "Cập nhật hôm nay",
+      stats: [
+        { k: "24h", v: "CẬP NHẬT GIÁ" },
+        { k: "4", v: "NỀN TẢNG" },
+        { k: "0", v: "ĐẾM NGƯỢC GIẢ" },
+      ],
+      filters: {
+        today: "Hôm nay",
+        hot: "Giảm sâu",
+        limited: "Sắp kết thúc",
+        coupon: "Có mã giảm",
+        budget: "Dưới 300K",
+        gift: "Quà tặng",
+      },
+      resultCount: "{n} ưu đãi",
+      couponPrefix: "Mã",
+      endsPrefix: "Kết thúc",
+      emptyTitle: "Chưa có ưu đãi phù hợp",
+      emptyBody: "Hôm nay nhóm này chưa có deal đủ tốt. Thử bộ lọc khác hoặc quay lại sau.",
+      trustTitle: "Lưu ý khi săn deal",
+      trustPoints: [
+        "Giá và mã giảm có thể thay đổi theo thời điểm — luôn kiểm tra lại trên nền tảng trước khi đặt.",
+        "Ưu tiên shop uy tín, có đánh giá thật và chính sách đổi trả rõ ràng.",
+        "Áp mã giảm ở bước thanh toán; một số voucher chỉ có trong livestream.",
+        "Deal giới hạn thời gian có thể hết sớm hơn ngày kết thúc nếu cháy hàng.",
+      ],
+      relatedTitle: "Có thể bạn cũng thích",
+      relatedLead: "Những sản phẩm được biên tập chấm điểm cao, đáng cân nhắc song song.",
+    },
     editor: {
       quote: "Mỗi món bạn thấy ở đây đều phải trả lời được câu này: nếu là tiền của mình, mình có mua không?",
       signature: "— LINH · BIÊN TẬP TRƯỞNG",
@@ -954,6 +1163,128 @@ const en: Dictionary = {
       buybarCta: "View Deal",
       noCoupon: "—",
       noShipping: "—",
+    },
+    collection: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      introSuffix: "Every product below is hand-checked by our editors, price-compared across platforms, and kept on the list only if it's genuinely worth the money.",
+      stats: { products: "Products", avgScore: "Avg score", priceRefresh: "Price refresh" },
+      priceRefreshValue: "24h",
+      filtersTitle: "Filters",
+      filterToggle: "Filters",
+      filterCloseAria: "Close filters",
+      groups: { merchant: "Merchant", badge: "Badge", price: "Price range (₫)", rating: "Min score" },
+      priceMin: "Min",
+      priceMax: "Max",
+      ratingOptions: { any: "Any", r90: "9.0+", r85: "8.5+", r80: "8.0+" },
+      clearFilters: "Clear filters",
+      resultCount: "{n} products",
+      sortLabel: "Sort by",
+      sortOptions: {
+        recommended: "Recommended",
+        priceAsc: "Price: low to high",
+        priceDesc: "Price: high to low",
+        rated: "Best rated",
+        deals: "On deal",
+      },
+      emptyTitle: "No products match",
+      emptyBody: "Try widening the price range or removing some filters to see more options.",
+      relatedTitle: "Related collections",
+      relatedLead: "Explore other product groups across the Giodicho ecosystem.",
+      guidesTitle: "Related guides & reviews",
+      guidesLead: "Read before you buy — real analysis, no fluff.",
+      faqTitle: "Frequently asked",
+      faqs: [
+        {
+          q: "How does Giodicho pick products for this collection?",
+          a: "Our editors unbox, measure and handle each product before scoring it. Only pieces that meet our bar for detail, durability and value stay on the list.",
+        },
+        {
+          q: "Are the prices shown accurate?",
+          a: "Prices are referenced from the platforms and can change over time or with coupons. Always re-check on the platform page before buying.",
+        },
+        {
+          q: "Does buying through Giodicho links cost more?",
+          a: "No. These are affiliate links — you pay the platform's listed price, and Giodicho may earn a commission at no extra cost to you.",
+        },
+      ],
+    },
+    bestPicks: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      eyebrow: "BEST PICKS",
+      title: "Best picks",
+      titleAccent: "worth your money",
+      lead: "One editor-chosen winner per use-case — each unboxed, measured and price-checked for real. No empty top-10 SEO lists, just pieces actually worth buying.",
+      stats: [
+        { k: "6", v: "CATEGORIES" },
+        { k: "12", v: "EDITORS" },
+        { k: "24h", v: "PRICE REFRESH" },
+      ],
+      tabAll: "All",
+      tabLabels: {
+        bestOverall: "Best overall",
+        bestBudget: "Best budget",
+        bestForGift: "Best for gift",
+        bestForDesk: "Best for desk",
+        bestLimited: "Best limited",
+        bestCute: "Best cute",
+      },
+      featuredEyebrow: "EDITOR'S TOP PICK",
+      otherTitle: "Other top picks",
+      altTitle: "Alternatives",
+      altLead: "Same segment as the winner — worth a look if you want a different direction.",
+      whyTitle: "Why we picked these",
+      whyLead: "Every pick has to clear a real evaluation process before it makes the list.",
+      whyPoints: [
+        "We unbox and handle the actual product — never score from seller photos.",
+        "We track prices across Shopee, TikTok Shop, Lazada and Official Store over time.",
+        "Only one winner per use-case stays — judged on value, durability and finish.",
+      ],
+      criteriaTitle: "How we judge",
+      criteriaLead: "Four fixed criteria applied to every product on the list.",
+      criteria: [
+        { title: "Build quality", desc: "Detail, paint and sturdiness seen at real display distance." },
+        { title: "Value for the tier", desc: "Heft and materials versus the price — worth it, not just cheap." },
+        { title: "Seller reliability", desc: "Trusted shops, transparent pricing and clear return policies first." },
+        { title: "Fit for purpose", desc: "Each winner is chosen for a specific need: gifting, desk, collecting…" },
+      ],
+    },
+    dealsPage: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      eyebrow: "CURATED DEALS",
+      title: "Deals",
+      titleAccent: "actually worth a look",
+      lead: "We only list a deal when the price is genuinely good — compared across platforms, with no fake flash sales or countdown timers.",
+      updatedLabel: "Updated today",
+      stats: [
+        { k: "24h", v: "PRICE REFRESH" },
+        { k: "4", v: "MARKETPLACES" },
+        { k: "0", v: "FAKE COUNTDOWNS" },
+      ],
+      filters: {
+        today: "Today",
+        hot: "Hot deals",
+        limited: "Ending soon",
+        coupon: "Coupon",
+        budget: "Under 300K",
+        gift: "Gift deals",
+      },
+      resultCount: "{n} deals",
+      couponPrefix: "Code",
+      endsPrefix: "Ends",
+      emptyTitle: "No matching deals",
+      emptyBody: "Nothing in this group is good enough today. Try another filter or check back later.",
+      trustTitle: "Before you grab a deal",
+      trustPoints: [
+        "Prices and coupon codes can change over time — always re-check on the platform before buying.",
+        "Prefer trusted shops with real reviews and a clear return policy.",
+        "Apply coupon codes at checkout; some vouchers are livestream-only.",
+        "Limited-time deals can end before their listed date if stock runs out.",
+      ],
+      relatedTitle: "You may also like",
+      relatedLead: "Editor-scored picks worth considering alongside today's deals.",
     },
     editor: {
       quote: "Every piece you see here has to answer one question: would I buy this with my own money?",

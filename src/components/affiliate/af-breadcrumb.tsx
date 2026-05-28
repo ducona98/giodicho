@@ -5,11 +5,12 @@ export type BreadcrumbItem = { label: string; href?: string };
 type Props = {
   items: BreadcrumbItem[];
   ariaLabel: string;
+  className?: string;
 };
 
-export function AfBreadcrumb({ items, ariaLabel }: Props) {
+export function AfBreadcrumb({ items, ariaLabel, className = "af-pd-breadcrumb" }: Props) {
   return (
-    <nav className="af-pd-breadcrumb" aria-label={ariaLabel}>
+    <nav className={className} aria-label={ariaLabel}>
       <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "inline" }}>
         {items.map((item, i) => {
           const isLast = i === items.length - 1;

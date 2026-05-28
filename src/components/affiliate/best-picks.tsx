@@ -43,7 +43,7 @@ export function AfBestPicksSection({ t, locale }: Props) {
           title={<>{s.titlePre} <span className="af-it">{s.titleIt}</span>{s.titlePost}</>}
           lead={s.lead}
           action={
-            <a href="#best-picks" className="af-btn af-btn--primary">
+            <a href={`/${locale}/best-picks`} className="af-btn af-btn--primary">
               {s.viewAll} <AfIcon name="arrow" size={14} />
             </a>
           }

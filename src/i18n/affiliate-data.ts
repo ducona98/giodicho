@@ -788,6 +788,37 @@ export function productsByCategory(catSlug: string): AffiliateProduct[] {
   return AFFILIATE_DATA.products.filter((p) => p.catSlug === catSlug);
 }
 
+export function findCategory(slug: string): AffiliateCategory | undefined {
+  return AFFILIATE_DATA.categories.find((c) => c.slug === slug);
+}
+
+// Resolve products for a collection page. Real categories map by catSlug;
+// the curated "gift-ideas" / "limited-finds" categories have no catSlug of
+// their own, so derive their members by badge/tag.
+export function productsForCollection(catSlug: string): AffiliateProduct[] {
+  const direct = productsByCategory(catSlug);
+  if (direct.length) return direct;
+  const list = AFFILIATE_DATA.products as readonly AffiliateProduct[];
+  if (catSlug === "gift-ideas") {
+    return list.filter(
+      (p) =>
+        p.badge === "gift" ||
+        p.bestPickFor === "bestForGift" ||
+        p.tags.en.includes("Gift") ||
+        p.tags.vi.includes("Quà tặng")
+    );
+  }
+  if (catSlug === "limited-finds") {
+    return list.filter(
+      (p) =>
+        p.badge === "limited" ||
+        p.tags.en.includes("Limited") ||
+        p.tags.vi.includes("Limited")
+    );
+  }
+  return [];
+}
+
 export function productsByBestPick(slot: BestPickSlot): AffiliateProduct[] {
   return AFFILIATE_DATA.products.filter((p) => p.bestPickFor === slot);
 }
