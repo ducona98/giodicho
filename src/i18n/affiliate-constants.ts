@@ -1,4 +1,4 @@
-import type { BadgeKey, BestPickSlot, Bi, MerchantKey } from "./affiliate-data";
+import type { ArticleTopic, BadgeKey, BestPickSlot, Bi, MerchantKey } from "./affiliate-data";
 
 export type CtaLabelKey =
   | "viewDeal"
@@ -33,6 +33,15 @@ export const BADGE_LABELS: Record<BadgeKey, Bi> = {
   gift:    { vi: "Quà tặng",  en: "Gift Idea" },
   deal:    { vi: "Ưu đãi",    en: "Hot Deal" },
   new:     { vi: "Mới",       en: "New" },
+};
+
+export const ARTICLE_TOPIC_LABELS: Record<ArticleTopic, Bi> = {
+  buying:     { vi: "Hướng dẫn mua",  en: "Buying Guides" },
+  review:     { vi: "Đánh giá",       en: "Reviews" },
+  comparison: { vi: "So sánh",        en: "Comparisons" },
+  gift:       { vi: "Quà tặng",       en: "Gift Ideas" },
+  setup:      { vi: "Desk Setup",     en: "Desk Setup" },
+  collecting: { vi: "Mẹo sưu tầm",    en: "Collecting Tips" },
 };
 
 export const MERCHANT_LABELS: Record<MerchantKey, Bi> = {

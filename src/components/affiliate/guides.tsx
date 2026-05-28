@@ -29,7 +29,7 @@ export function AfGuidesSection({ t, locale }: Props) {
           eyebrow={s.eyebrow}
           title={<>{s.titlePre} <span className="af-it">{s.titleIt}</span>{s.titlePost}</>}
           action={
-            <a href="#guides" className="af-btn af-btn--ghost">
+            <a href={`/${locale}/guides`} className="af-btn af-btn--ghost">
               {ui.seeAll} <AfIcon name="arrow" size={14} />
             </a>
           }
@@ -37,7 +37,13 @@ export function AfGuidesSection({ t, locale }: Props) {
 
         <div className="af-grid-3">
           {articles.map((a) => (
-            <AfArticleCard key={a.id} article={a} t={t} locale={locale} />
+            <AfArticleCard
+              key={a.id}
+              article={a}
+              t={t}
+              locale={locale}
+              href={`/${locale}/guides/${a.slug ?? a.id}`}
+            />
           ))}
         </div>
       </div>

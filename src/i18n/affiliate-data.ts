@@ -12,6 +12,14 @@ export type BestPickSlot =
   | "bestLimited"
   | "bestCute";
 
+export type ArticleTopic =
+  | "buying"
+  | "review"
+  | "comparison"
+  | "gift"
+  | "setup"
+  | "collecting";
+
 export type AffiliateFaq = { q: Bi; a: Bi };
 
 export type MerchantOffer = {
@@ -94,6 +102,7 @@ export type AffiliateArticle = {
   id: string;
   slug?: string;
   cat: Bi;
+  topic?: ArticleTopic;
   title: Bi;
   excerpt: Bi;
   read: number;
@@ -720,6 +729,7 @@ export const AFFILIATE_DATA = {
       id: "anime-mini-desk",
       slug: "top-10-anime-mini-desk-2025",
       cat: { vi: "Top list", en: "Top list" },
+      topic: "review",
       title: { vi: "Top 10 figure anime mini đáng mua cho góc làm việc 2025", en: "Top 10 Anime Mini Figures Worth Buying for Your Desk in 2025" },
       excerpt: { vi: "Tuyển chọn những figure dưới 2 triệu vừa đẹp vừa đứng vững trên desk setup hằng ngày.", en: "A curated set of sub-2M figures that look amazing and survive daily desk life." },
       read: 8,
@@ -764,11 +774,65 @@ export const AFFILIATE_DATA = {
           a: { vi: "Có nếu là limited run đánh số. Bản phổ thông thì chờ đợt restock thường rẻ hơn 10-15%.", en: "Yes for numbered limited runs. For standard versions, waiting for restocks usually saves 10-15%." } },
       ],
     },
-    { id: "pvc-vs-resin",        cat: { vi: "Hướng dẫn",  en: "Buying guide" },  slug: "pvc-vs-resin-beginner-guide", title: { vi: "Nên chọn mô hình PVC hay resin? Hướng dẫn cho người mới",     en: "PVC vs Resin: A Beginner's Guide to Choosing Your First Figure" }, excerpt: { vi: "Khác biệt rõ ràng về độ chi tiết, độ bền, giá và cách bảo quản.", en: "How they differ in detail, durability, price, and care." },                read: 6, updated: { vi: "Cập nhật tuần này",     en: "Updated this week" },   ph: { a: "var(--accent-2)", b: "var(--accent)" }, relatedProductIds: ["astro-pilot", "sage-hollow"] },
-    { id: "gift-under-500k",     cat: { vi: "Quà tặng",   en: "Gift ideas" },    slug: "collectible-gifts-under-500k", title: { vi: "Quà tặng dưới 500k cho người thích collectibles",              en: "Collectibles Under 500k VND for the Hard-to-Shop-For" },          excerpt: { vi: "9 gợi ý vừa túi tiền, vừa đẹp, vừa thật sự hữu ích cho người sưu tầm.", en: "9 affordable picks that look great and are actually useful." },          read: 5, updated: { vi: "Cập nhật hôm nay",      en: "Updated today" },        ph: { a: "#FFB86B",         b: "var(--primary)" }, relatedProductIds: ["desk-lantern", "study-buddy", "brass-stand"] },
-    { id: "mini-cars-desk",      cat: { vi: "Setup",      en: "Setup" },         slug: "mini-cars-study-desk-decor",   title: { vi: "Mẫu xe mô hình nhỏ đẹp để decor bàn học",                      en: "Mini Cars That Make Your Study Desk Feel Like a Garage" },        excerpt: { vi: "Từ 200k đến 1tr, đây là những mẫu nhìn rất ổn trên kệ sách.", en: "200k to 1M — here's what actually looks good on a bookshelf." },                       read: 7, updated: { vi: "Cập nhật 3 ngày trước", en: "Updated 3 days ago" },   ph: { a: "var(--accent)",   b: "var(--primary)" }, relatedProductIds: ["gt-roadster-67", "rally-coupe", "ocean-explorer"] },
-    { id: "limited-this-month",  cat: { vi: "Đánh giá",   en: "Review" },        slug: "limited-drops-this-month",     title: { vi: "Drop giới hạn tháng này — món nào đáng tiền?",                 en: "Limited Drops This Month — What's Actually Worth It" },           excerpt: { vi: "Phân tích 6 drop giới hạn vừa mở — pre-order khôn ngoan hơn.", en: "Six limited drops just opened — here's how to pre-order smart." },                read: 9, updated: { vi: "Cập nhật hôm qua",     en: "Updated yesterday" },   ph: { a: "var(--danger)",   b: "var(--accent)" }, relatedProductIds: ["sage-hollow", "cloud-castle", "neon-ronin"] },
-    { id: "best-stands",         cat: { vi: "Hướng dẫn",  en: "Buying guide" },  slug: "best-figure-stands-guide",     title: { vi: "Cách chọn đế figure không trượt, không cong",                  en: "How to Pick a Figure Stand That Won't Slip or Warp" },            excerpt: { vi: "Đế đồng thau, đế acrylic, đế xoay — đâu là lựa chọn đúng?", en: "Brass, acrylic, rotating — which one matches your shelf?" },                           read: 4, updated: { vi: "Cập nhật tuần trước",   en: "Updated last week" },   ph: { a: "var(--text-3)",   b: "var(--accent)" }, relatedProductIds: ["brass-stand"] },
+    {
+      id: "pvc-vs-resin",
+      slug: "pvc-vs-resin-beginner-guide",
+      cat: { vi: "Hướng dẫn", en: "Buying guide" },
+      topic: "buying",
+      title: {
+        vi: "Nên chọn mô hình PVC hay resin? Hướng dẫn cho người mới",
+        en: "PVC vs Resin: A Beginner's Guide to Choosing Your First Figure",
+      },
+      excerpt: {
+        vi: "Khác biệt rõ ràng về độ chi tiết, độ bền, giá và cách bảo quản.",
+        en: "How they differ in detail, durability, price, and care.",
+      },
+      read: 6,
+      updated: { vi: "Cập nhật tuần này", en: "Updated this week" },
+      ph: { a: "var(--accent-2)", b: "var(--accent)" },
+      author: { name: "Linh Nguyễn", role: { vi: "Biên tập trưởng", en: "Head Curator" } },
+      body: [
+        {
+          heading: { vi: "PVC và resin khác nhau ở đâu", en: "How PVC and resin actually differ" },
+          content: {
+            vi: "PVC là nhựa dẻo đúc khuôn hàng loạt: nhẹ, bền va đập, giá dễ chịu và phù hợp figure sản xuất số lượng lớn. Resin là nhựa đúc thủ công, đổ khuôn từng mẻ nhỏ — cho chi tiết sắc nét hơn nhưng giòn hơn và đắt hơn rõ rệt.",
+            en: "PVC is mass-molded flexible plastic: light, impact-resistant, affordable, and ideal for high-volume figures. Resin is hand-cast in small batches — it captures sharper detail but is more brittle and noticeably pricier.",
+          },
+        },
+        {
+          heading: { vi: "Chi tiết, độ bền và giá", en: "Detail, durability and price" },
+          content: {
+            vi: "Nếu bạn ưu tiên độ sắc nét của nếp vải, sợi tóc hay diorama, resin thắng. Nếu bạn cần một figure đứng bàn làm việc chịu được va quệt hằng ngày, PVC là lựa chọn an toàn. Về giá, một figure PVC 1/7 tốt thường dưới 2 triệu, trong khi resin cùng tỉ lệ dễ vượt 2.3 triệu vì sơn tay và sản xuất giới hạn.",
+            en: "If you prize crispness in cloth folds, hair strands or dioramas, resin wins. If you need a desk figure that survives daily bumps, PVC is the safe pick. On price, a good 1/7 PVC figure usually lands under 2M VND, while resin at the same scale easily clears 2.3M thanks to hand-painting and limited runs.",
+          },
+        },
+        {
+          heading: { vi: "Cách bảo quản từng loại", en: "Caring for each material" },
+          content: {
+            vi: "Cả hai đều sợ nắng trực tiếp — ánh nắng làm PVC cong (\"melt\") và làm resin ngả màu. Tránh để gần cửa sổ hướng tây. Resin cần kê đế chắc vì nặng và dễ nứt nếu rơi; PVC chỉ cần lau bụi định kỳ bằng cọ mềm.",
+            en: "Both hate direct sun — UV warps PVC (\"melt\") and yellows resin. Keep them away from west-facing windows. Resin needs a solid base because it's heavy and cracks if dropped; PVC just needs a periodic dusting with a soft brush.",
+          },
+        },
+        {
+          heading: { vi: "Nên mua gì đầu tiên?", en: "What should you buy first?" },
+          content: {
+            vi: "Người mới nên bắt đầu với một figure PVC chất lượng tốt như Astro Pilot — dễ trưng bày, khó hỏng, đáng tiền. Khi đã quen cách bảo quản và muốn một món \"để đời\" cho tủ kính, hãy đầu tư một bản resin đánh số như Sage of the Hollow.",
+            en: "Beginners should start with a quality PVC piece like the Astro Pilot — easy to display, hard to damage, great value. Once you're comfortable with care and want a centerpiece for the cabinet, invest in a numbered resin like Sage of the Hollow.",
+          },
+        },
+      ],
+      relatedProductIds: ["astro-pilot", "sage-hollow"],
+      faqs: [
+        { q: { vi: "Resin có độc không khi để trong phòng?", en: "Is resin toxic to keep in a room?" },
+          a: { vi: "Resin đã đóng rắn hoàn toàn thì an toàn để trưng bày. Chỉ bụi mài resin (khi tự chế tác) mới cần đeo khẩu trang.", en: "Fully cured resin is safe to display. Only resin dust from sanding (during custom work) requires a mask." } },
+        { q: { vi: "Figure PVC để lâu có bị xuống màu?", en: "Does PVC fade over time?" },
+          a: { vi: "Có, nếu phơi nắng. Trưng trong tủ kính tránh nắng thì giữ màu rất lâu, nhiều năm.", en: "Yes, if sun-exposed. Kept in a cabinet away from sunlight, the color holds for many years." } },
+      ],
+    },
+    { id: "gift-under-500k",     cat: { vi: "Quà tặng",   en: "Gift ideas" },    topic: "gift",       slug: "collectible-gifts-under-500k", title: { vi: "Quà tặng dưới 500k cho người thích collectibles",              en: "Collectibles Under 500k VND for the Hard-to-Shop-For" },          excerpt: { vi: "9 gợi ý vừa túi tiền, vừa đẹp, vừa thật sự hữu ích cho người sưu tầm.", en: "9 affordable picks that look great and are actually useful." },          read: 5, updated: { vi: "Cập nhật hôm nay",      en: "Updated today" },        ph: { a: "#FFB86B",         b: "var(--primary)" }, relatedProductIds: ["desk-lantern", "study-buddy", "brass-stand"] },
+    { id: "mini-cars-desk",      cat: { vi: "Setup",      en: "Setup" },         topic: "setup",      slug: "mini-cars-study-desk-decor",   title: { vi: "Mẫu xe mô hình nhỏ đẹp để decor bàn học",                      en: "Mini Cars That Make Your Study Desk Feel Like a Garage" },        excerpt: { vi: "Từ 200k đến 1tr, đây là những mẫu nhìn rất ổn trên kệ sách.", en: "200k to 1M — here's what actually looks good on a bookshelf." },                       read: 7, updated: { vi: "Cập nhật 3 ngày trước", en: "Updated 3 days ago" },   ph: { a: "var(--accent)",   b: "var(--primary)" }, relatedProductIds: ["gt-roadster-67", "rally-coupe", "ocean-explorer"] },
+    { id: "limited-this-month",  cat: { vi: "Đánh giá",   en: "Review" },        topic: "review",     slug: "limited-drops-this-month",     title: { vi: "Drop giới hạn tháng này — món nào đáng tiền?",                 en: "Limited Drops This Month — What's Actually Worth It" },           excerpt: { vi: "Phân tích 6 drop giới hạn vừa mở — pre-order khôn ngoan hơn.", en: "Six limited drops just opened — here's how to pre-order smart." },                read: 9, updated: { vi: "Cập nhật hôm qua",     en: "Updated yesterday" },   ph: { a: "var(--danger)",   b: "var(--accent)" }, relatedProductIds: ["sage-hollow", "cloud-castle", "neon-ronin"] },
+    { id: "best-stands",         cat: { vi: "Hướng dẫn",  en: "Buying guide" },  topic: "buying",     slug: "best-figure-stands-guide",     title: { vi: "Cách chọn đế figure không trượt, không cong",                  en: "How to Pick a Figure Stand That Won't Slip or Warp" },            excerpt: { vi: "Đế đồng thau, đế acrylic, đế xoay — đâu là lựa chọn đúng?", en: "Brass, acrylic, rotating — which one matches your shelf?" },                           read: 4, updated: { vi: "Cập nhật tuần trước",   en: "Updated last week" },   ph: { a: "var(--text-3)",   b: "var(--accent)" }, relatedProductIds: ["brass-stand"] },
   ] satisfies AffiliateArticle[],
 
   testimonials: [
@@ -831,4 +895,32 @@ export function articleBySlug(slugOrId: string): AffiliateArticle | undefined {
   return AFFILIATE_DATA.articles.find(
     (a) => a.slug === slugOrId || a.id === slugOrId
   );
+}
+
+// Distinct topics present in the article set, in their first-seen order.
+// Drives the guides listing tabs so no empty tab is ever rendered.
+export function articleTopics(): ArticleTopic[] {
+  const seen: ArticleTopic[] = [];
+  for (const a of AFFILIATE_DATA.articles) {
+    if (a.topic && !seen.includes(a.topic)) seen.push(a.topic);
+  }
+  return seen;
+}
+
+export function articlesByTopic(topic: ArticleTopic): AffiliateArticle[] {
+  return AFFILIATE_DATA.articles.filter((a) => a.topic === topic);
+}
+
+export function relatedArticles(
+  article: AffiliateArticle,
+  n = 3
+): AffiliateArticle[] {
+  const pool = AFFILIATE_DATA.articles as readonly AffiliateArticle[];
+  const sameTopic = pool.filter(
+    (a) => a.id !== article.id && a.topic && a.topic === article.topic
+  );
+  const rest = pool.filter(
+    (a) => a.id !== article.id && !sameTopic.includes(a)
+  );
+  return [...sameTopic, ...rest].slice(0, n);
 }

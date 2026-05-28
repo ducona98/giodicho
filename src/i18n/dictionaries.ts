@@ -196,6 +196,36 @@ export type AffiliateDict = {
     relatedTitle: string;
     relatedLead: string;
   };
+  guidesPage: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    lead: string;
+    stats: { k: string; v: string }[];
+    tabAll: string;
+    featuredEyebrow: string;
+    allTitle: string;
+    allLead: string;
+    popularTitle: string;
+    popularLead: string;
+    emptyTitle: string;
+    emptyBody: string;
+  };
+  articleDetail: {
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    breadcrumbGuides: string;
+    byPrefix: string;
+    tocTitle: string;
+    recommendedTitle: string;
+    recommendedLead: string;
+    relatedTitle: string;
+    relatedLead: string;
+    faqTitle: string;
+    disclosureNote: string;
+  };
   editor: { quote: string; signature: string; avatar: string };
   newsletter: {
     eyebrow: string;
@@ -787,6 +817,40 @@ const vi: Dictionary = {
       relatedTitle: "Có thể bạn cũng thích",
       relatedLead: "Những sản phẩm được biên tập chấm điểm cao, đáng cân nhắc song song.",
     },
+    guidesPage: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      eyebrow: "HƯỚNG DẪN & ĐÁNH GIÁ",
+      title: "Đọc trước",
+      titleAccent: "khi xuống tiền",
+      lead: "Phân tích thật từ người cầm sản phẩm trên tay — hướng dẫn mua, đánh giá, gợi ý quà tặng và mẹo setup bàn làm việc.",
+      stats: [
+        { k: "6", v: "BÀI VIẾT" },
+        { k: "100%", v: "TỰ TRẢI NGHIỆM" },
+        { k: "0", v: "NỘI DUNG COPY" },
+      ],
+      tabAll: "Tất cả",
+      featuredEyebrow: "BÀI NỔI BẬT",
+      allTitle: "Tất cả bài viết",
+      allLead: "Cập nhật thường xuyên theo drop mới và mùa quà tặng.",
+      popularTitle: "Chủ đề phổ biến",
+      popularLead: "Bắt đầu từ những chủ đề được đọc nhiều nhất.",
+      emptyTitle: "Chưa có bài viết",
+      emptyBody: "Chủ đề này chưa có bài. Thử chọn chủ đề khác hoặc xem tất cả.",
+    },
+    articleDetail: {
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      breadcrumbGuides: "Hướng dẫn",
+      byPrefix: "Bởi",
+      tocTitle: "Trong bài này",
+      recommendedTitle: "Gợi ý trong bài",
+      recommendedLead: "Những sản phẩm được nhắc tới — so giá trước khi mua.",
+      relatedTitle: "Bài viết liên quan",
+      relatedLead: "Đọc thêm để chọn cho chắc.",
+      faqTitle: "Câu hỏi thường gặp",
+      disclosureNote: "Bài viết có chứa liên kết affiliate.",
+    },
     editor: {
       quote: "Mỗi món bạn thấy ở đây đều phải trả lời được câu này: nếu là tiền của mình, mình có mua không?",
       signature: "— LINH · BIÊN TẬP TRƯỞNG",
@@ -1285,6 +1349,40 @@ const en: Dictionary = {
       ],
       relatedTitle: "You may also like",
       relatedLead: "Editor-scored picks worth considering alongside today's deals.",
+    },
+    guidesPage: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      eyebrow: "GUIDES & REVIEWS",
+      title: "Read this",
+      titleAccent: "before you spend",
+      lead: "Real analysis from people who handled the products — buying guides, reviews, gift ideas and desk-setup tips.",
+      stats: [
+        { k: "6", v: "ARTICLES" },
+        { k: "100%", v: "HANDS-ON" },
+        { k: "0", v: "COPIED CONTENT" },
+      ],
+      tabAll: "All",
+      featuredEyebrow: "FEATURED",
+      allTitle: "All articles",
+      allLead: "Updated regularly around new drops and gifting seasons.",
+      popularTitle: "Popular topics",
+      popularLead: "Start with what people read the most.",
+      emptyTitle: "No articles yet",
+      emptyBody: "Nothing in this topic yet. Try another topic or view all.",
+    },
+    articleDetail: {
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      breadcrumbGuides: "Guides",
+      byPrefix: "By",
+      tocTitle: "In this article",
+      recommendedTitle: "Recommended in this guide",
+      recommendedLead: "The products mentioned — compare prices before you buy.",
+      relatedTitle: "Related articles",
+      relatedLead: "Keep reading to choose with confidence.",
+      faqTitle: "Frequently asked questions",
+      disclosureNote: "This article contains affiliate links.",
     },
     editor: {
       quote: "Every piece you see here has to answer one question: would I buy this with my own money?",
