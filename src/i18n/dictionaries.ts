@@ -34,6 +34,7 @@ export type AffiliateDict = {
     openMenu: string;
     closeMenu: string;
     searchAria: string;
+    searchPlaceholder: string;
     themeToLight: string;
     themeToDark: string;
     savedAria: string;
@@ -253,6 +254,28 @@ export type AffiliateDict = {
     alternativesLead: string;
     emptyTitle: string;
     emptyBody: string;
+  };
+  search: {
+    label: string;
+    breadcrumbAria: string;
+    breadcrumbHome: string;
+    placeholder: string;
+    button: string;
+    resultsLabel: string;
+    noResultsTitle: string;
+    noResultsBody: string;
+    clearAll: string;
+    filtersLabel: string;
+    allLabel: string;
+    categoryLabel: string;
+    merchantLabel: string;
+    priceLabel: string;
+    priceBuckets: { any: string; u300: string; u800: string; u1500: string; o1500: string };
+    ratingLabel: string;
+    ratingOptions: { any: string; r90: string; r85: string; r80: string };
+    onSaleLabel: string;
+    sortLabel: string;
+    sortOptions: { relevance: string; priceAsc: string; priceDesc: string; rated: string };
   };
   editor: { quote: string; signature: string; avatar: string };
   newsletter: {
@@ -550,6 +573,7 @@ const vi: Dictionary = {
       openMenu: "Mở menu",
       closeMenu: "Đóng menu",
       searchAria: "Tìm kiếm",
+      searchPlaceholder: "Tìm figure, xe, decor...",
       themeToLight: "Chuyển sang chế độ sáng",
       themeToDark: "Chuyển sang chế độ tối",
       savedAria: "Sản phẩm đã lưu",
@@ -907,6 +931,28 @@ const vi: Dictionary = {
       emptyTitle: "Chọn ít nhất 2 sản phẩm",
       emptyBody: "Thêm sản phẩm để bắt đầu so sánh cạnh nhau.",
     },
+    search: {
+      label: "Tìm kiếm",
+      breadcrumbAria: "Đường dẫn điều hướng",
+      breadcrumbHome: "Trang chủ",
+      placeholder: "Tìm figure, xe mô hình, decor...",
+      button: "Tìm kiếm",
+      resultsLabel: "{n} kết quả",
+      noResultsTitle: "Không tìm thấy kết quả",
+      noResultsBody: "Thử từ khóa khác hoặc bỏ bớt bộ lọc.",
+      clearAll: "Xóa tất cả bộ lọc",
+      filtersLabel: "Bộ lọc",
+      allLabel: "Tất cả",
+      categoryLabel: "Danh mục",
+      merchantLabel: "Nơi bán",
+      priceLabel: "Khoảng giá",
+      priceBuckets: { any: "Mọi giá", u300: "Dưới 300K", u800: "Dưới 800K", u1500: "Dưới 1.5tr", o1500: "Từ 1.5tr" },
+      ratingLabel: "Điểm tối thiểu",
+      ratingOptions: { any: "Tất cả", r90: "9.0+", r85: "8.5+", r80: "8.0+" },
+      onSaleLabel: "Đang có deal",
+      sortLabel: "Sắp xếp",
+      sortOptions: { relevance: "Liên quan nhất", priceAsc: "Giá tăng dần", priceDesc: "Giá giảm dần", rated: "Điểm cao nhất" },
+    },
     editor: {
       quote: "Mỗi món bạn thấy ở đây đều phải trả lời được câu này: nếu là tiền của mình, mình có mua không?",
       signature: "— LINH · BIÊN TẬP TRƯỞNG",
@@ -1111,6 +1157,7 @@ const en: Dictionary = {
       openMenu: "Open menu",
       closeMenu: "Close menu",
       searchAria: "Search",
+      searchPlaceholder: "Find figures, cars, decor...",
       themeToLight: "Switch to light mode",
       themeToDark: "Switch to dark mode",
       savedAria: "Saved items",
@@ -1467,6 +1514,28 @@ const en: Dictionary = {
       alternativesLead: "Same tier, worth a look before you decide.",
       emptyTitle: "Pick at least 2 products",
       emptyBody: "Add products to start comparing side by side.",
+    },
+    search: {
+      label: "Search",
+      breadcrumbAria: "Breadcrumb",
+      breadcrumbHome: "Home",
+      placeholder: "Find figures, mini cars, decor...",
+      button: "Search",
+      resultsLabel: "{n} results",
+      noResultsTitle: "No results found",
+      noResultsBody: "Try a different keyword or remove some filters.",
+      clearAll: "Clear all filters",
+      filtersLabel: "Filters",
+      allLabel: "All",
+      categoryLabel: "Category",
+      merchantLabel: "Where to buy",
+      priceLabel: "Price range",
+      priceBuckets: { any: "Any price", u300: "Under 300K", u800: "Under 800K", u1500: "Under 1.5M", o1500: "1.5M and up" },
+      ratingLabel: "Min score",
+      ratingOptions: { any: "Any", r90: "9.0+", r85: "8.5+", r80: "8.0+" },
+      onSaleLabel: "On sale",
+      sortLabel: "Sort",
+      sortOptions: { relevance: "Most relevant", priceAsc: "Price: low to high", priceDesc: "Price: high to low", rated: "Highest rated" },
     },
     editor: {
       quote: "Every piece you see here has to answer one question: would I buy this with my own money?",

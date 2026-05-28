@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -36,6 +36,7 @@ function swapLocale(pathname: string, target: Locale): string {
 export function AfHeader({ t, locale, savedCount = 12 }: Props) {
   const scrolled = useScrolled();
   const pathname = usePathname() || `/${locale}`;
+  const router = useRouter();
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -61,9 +62,27 @@ export function AfHeader({ t, locale, savedCount = 12 }: Props) {
         </nav>
 
         <div className="af-actions">
-          <button type="button" className="af-iconbtn" aria-label={ui.searchAria}>
-            <AfIcon name="search" />
-          </button>
+          <form
+            className="af-header-search"
+            role="search"
+            aria-label={ui.searchAria}
+            onSubmit={(e) => {
+              e.preventDefault();
+              const q = (e.currentTarget.elements.namedItem("q") as HTMLInputElement).value.trim();
+              router.push(`/${locale}/search${q ? `?q=${encodeURIComponent(q)}` : ""}`);
+            }}
+          >
+            <input
+              name="q"
+              type="search"
+              className="af-header-search__input"
+              placeholder={ui.searchPlaceholder}
+              aria-label={ui.searchAria}
+            />
+            <button type="submit" className="af-iconbtn" aria-label={ui.searchAria}>
+              <AfIcon name="search" />
+            </button>
+          </form>
           <button
             type="button"
             className="af-iconbtn"

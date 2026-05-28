@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { AfIcon } from "./af-icon";
@@ -14,6 +15,8 @@ type Props = {
 };
 
 export function AfMobileMenu({ open, onClose, t, locale }: Props) {
+  const router = useRouter();
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -26,6 +29,8 @@ export function AfMobileMenu({ open, onClose, t, locale }: Props) {
   }, [onClose]);
 
   const n = t.affiliate.nav;
+  const s = t.affiliate.search;
+  const ui = t.affiliate.ui;
 
   return (
     <div
@@ -39,11 +44,35 @@ export function AfMobileMenu({ open, onClose, t, locale }: Props) {
         type="button"
         className="af-iconbtn"
         onClick={onClose}
-        aria-label={t.affiliate.ui.closeMenu}
+        aria-label={ui.closeMenu}
         style={{ position: "absolute", top: 20, right: 20 }}
       >
         <AfIcon name="x" />
       </button>
+
+      <form
+        className="af-mmenu-search"
+        role="search"
+        aria-label={ui.searchAria}
+        onSubmit={(e) => {
+          e.preventDefault();
+          const q = (e.currentTarget.elements.namedItem("q") as HTMLInputElement).value.trim();
+          onClose();
+          router.push(`/${locale}/search${q ? `?q=${encodeURIComponent(q)}` : ""}`);
+        }}
+      >
+        <div className="af-search-input-wrap">
+          <AfIcon name="search" size={16} />
+          <input
+            name="q"
+            type="search"
+            className="af-search-input"
+            placeholder={s.placeholder}
+            aria-label={ui.searchAria}
+          />
+        </div>
+      </form>
+
       <nav aria-label="Mobile">
         <Link href={`/${locale}`} onClick={onClose}>{n.home}</Link>
         <a href="#collections" onClick={onClose}>{n.collections}</a>
