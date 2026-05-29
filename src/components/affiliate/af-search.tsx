@@ -221,7 +221,7 @@ export function AfSearch({ locale, t, products, categories }: Props) {
             <button
               type="button"
               className="af-search-clear"
-              aria-label="Clear"
+              aria-label={ui.clearSearchAria}
               onClick={() => {
                 setQ("");
                 router.replace(buildUrl(locale, "", filters), { scroll: false });

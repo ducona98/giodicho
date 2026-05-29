@@ -73,7 +73,7 @@ export function AfMobileMenu({ open, onClose, t, locale }: Props) {
         </div>
       </form>
 
-      <nav aria-label="Mobile">
+      <nav aria-label={ui.mobileNavAria}>
         <Link href={`/${locale}`} onClick={onClose}>{n.home}</Link>
         <a href="#collections" onClick={onClose}>{n.collections}</a>
         <Link href={`/${locale}/best-picks`} onClick={onClose}>{n.best}</Link>

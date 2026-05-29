@@ -164,13 +164,7 @@ export default function CollectionPage({ params }: { params: RouteParams }) {
         <section className="af-section" aria-labelledby="coll-faq">
           <div className="af-container">
             <AfSectionHead id="coll-faq" title={c.faqTitle} />
-            <AfFaq
-              faqs={c.faqs.map((f) => ({
-                q: { vi: f.q, en: f.q },
-                a: { vi: f.a, en: f.a },
-              }))}
-              locale={locale}
-            />
+            <AfFaq faqs={c.faqs} locale={locale} />
           </div>
         </section>
 

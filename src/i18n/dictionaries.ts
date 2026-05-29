@@ -1,4 +1,5 @@
 import type { Locale } from "./config";
+import type { AffiliateFaq } from "./affiliate-data";
 
 export type AffiliateDict = {
   nav: {
@@ -39,6 +40,10 @@ export type AffiliateDict = {
     themeToDark: string;
     savedAria: string;
     languageAria: string;
+    homeAria: string;
+    primaryNavAria: string;
+    mobileNavAria: string;
+    clearSearchAria: string;
   };
   disclosure: { full: string };
   hero: {
@@ -140,7 +145,7 @@ export type AffiliateDict = {
     guidesTitle: string;
     guidesLead: string;
     faqTitle: string;
-    faqs: { q: string; a: string }[];
+    faqs: AffiliateFaq[];
   };
   bestPicks: {
     breadcrumbAria: string;
@@ -299,6 +304,11 @@ export type AffiliateDict = {
       about: string[];
       legal: string[];
     };
+    socialAria: string;
+    socialIg: string;
+    socialYt: string;
+    socialTt: string;
+    socialRss: string;
   };
 };
 
@@ -578,6 +588,10 @@ const vi: Dictionary = {
       themeToDark: "Chuyển sang chế độ tối",
       savedAria: "Sản phẩm đã lưu",
       languageAria: "Ngôn ngữ",
+      homeAria: "Giodicho — Trang chủ",
+      primaryNavAria: "Điều hướng chính",
+      mobileNavAria: "Menu di động",
+      clearSearchAria: "Xóa tìm kiếm",
     },
     disclosure: {
       full: "Một số liên kết trên website là affiliate link. Khi bạn mua hàng qua các liên kết này, chúng tôi có thể nhận được hoa hồng mà không làm thay đổi giá bạn phải trả.",
@@ -779,16 +793,16 @@ const vi: Dictionary = {
       faqTitle: "Câu hỏi thường gặp",
       faqs: [
         {
-          q: "Giodicho chọn sản phẩm cho bộ sưu tập này như thế nào?",
-          a: "Biên tập viên mở hộp, đo đạc và đặt thử sản phẩm thật rồi mới chấm điểm. Chỉ những món đạt tiêu chí về chi tiết, độ bền và giá trị mới được giữ lại trong danh sách.",
+          q: { vi: "Giodicho chọn sản phẩm cho bộ sưu tập này như thế nào?", en: "How does Giodicho pick products for this collection?" },
+          a: { vi: "Biên tập viên mở hộp, đo đạc và đặt thử sản phẩm thật rồi mới chấm điểm. Chỉ những món đạt tiêu chí về chi tiết, độ bền và giá trị mới được giữ lại trong danh sách.", en: "Our editors unbox, measure and handle each product before scoring it. Only pieces that meet our bar for detail, durability and value stay on the list." },
         },
         {
-          q: "Giá hiển thị có chính xác không?",
-          a: "Giá được tham chiếu từ các nền tảng và có thể thay đổi theo thời điểm hoặc theo coupon. Hãy kiểm tra lại trên trang nền tảng trước khi đặt mua.",
+          q: { vi: "Giá hiển thị có chính xác không?", en: "Are the prices shown accurate?" },
+          a: { vi: "Giá được tham chiếu từ các nền tảng và có thể thay đổi theo thời điểm hoặc theo coupon. Hãy kiểm tra lại trên trang nền tảng trước khi đặt mua.", en: "Prices are referenced from the platforms and can change over time or with coupons. Always re-check on the platform page before buying." },
         },
         {
-          q: "Mua qua link của Giodicho có đắt hơn không?",
-          a: "Không. Đây là affiliate link — bạn trả đúng giá niêm yết của nền tảng, Giodicho có thể nhận hoa hồng mà không làm tăng giá của bạn.",
+          q: { vi: "Mua qua link của Giodicho có đắt hơn không?", en: "Does buying through Giodicho links cost more?" },
+          a: { vi: "Không. Đây là affiliate link — bạn trả đúng giá niêm yết của nền tảng, Giodicho có thể nhận hoa hồng mà không làm tăng giá của bạn.", en: "No. These are affiliate links — you pay the platform's listed price, and Giodicho may earn a commission at no extra cost to you." },
         },
       ],
     },
@@ -979,6 +993,11 @@ const vi: Dictionary = {
         about: ["Giới thiệu", "Cách tuyển chọn", "Liên hệ", "Newsletter"],
         legal: ["Công bố Affiliate", "Chính sách bảo mật", "Điều khoản"],
       },
+      socialAria: "Mạng xã hội",
+      socialIg: "Instagram",
+      socialYt: "YouTube",
+      socialTt: "TikTok",
+      socialRss: "RSS",
     },
   },
   meta: {
@@ -1162,6 +1181,10 @@ const en: Dictionary = {
       themeToDark: "Switch to dark mode",
       savedAria: "Saved items",
       languageAria: "Language",
+      homeAria: "Giodicho — Home",
+      primaryNavAria: "Primary navigation",
+      mobileNavAria: "Mobile navigation",
+      clearSearchAria: "Clear search",
     },
     disclosure: {
       full: "Some links on this website are affiliate links. We may earn a commission when you purchase through them, at no extra cost to you.",
@@ -1363,16 +1386,16 @@ const en: Dictionary = {
       faqTitle: "Frequently asked",
       faqs: [
         {
-          q: "How does Giodicho pick products for this collection?",
-          a: "Our editors unbox, measure and handle each product before scoring it. Only pieces that meet our bar for detail, durability and value stay on the list.",
+          q: { vi: "Giodicho chọn sản phẩm cho bộ sưu tập này như thế nào?", en: "How does Giodicho pick products for this collection?" },
+          a: { vi: "Biên tập viên mở hộp, đo đạc và đặt thử sản phẩm thật rồi mới chấm điểm. Chỉ những món đạt tiêu chí về chi tiết, độ bền và giá trị mới được giữ lại trong danh sách.", en: "Our editors unbox, measure and handle each product before scoring it. Only pieces that meet our bar for detail, durability and value stay on the list." },
         },
         {
-          q: "Are the prices shown accurate?",
-          a: "Prices are referenced from the platforms and can change over time or with coupons. Always re-check on the platform page before buying.",
+          q: { vi: "Giá hiển thị có chính xác không?", en: "Are the prices shown accurate?" },
+          a: { vi: "Giá được tham chiếu từ các nền tảng và có thể thay đổi theo thời điểm hoặc theo coupon. Hãy kiểm tra lại trên trang nền tảng trước khi đặt mua.", en: "Prices are referenced from the platforms and can change over time or with coupons. Always re-check on the platform page before buying." },
         },
         {
-          q: "Does buying through Giodicho links cost more?",
-          a: "No. These are affiliate links — you pay the platform's listed price, and Giodicho may earn a commission at no extra cost to you.",
+          q: { vi: "Mua qua link của Giodicho có đắt hơn không?", en: "Does buying through Giodicho links cost more?" },
+          a: { vi: "Không. Đây là affiliate link — bạn trả đúng giá niêm yết của nền tảng, Giodicho có thể nhận hoa hồng mà không làm tăng giá của bạn.", en: "No. These are affiliate links — you pay the platform's listed price, and Giodicho may earn a commission at no extra cost to you." },
         },
       ],
     },
@@ -1563,6 +1586,11 @@ const en: Dictionary = {
         about: ["About", "Curation method", "Contact", "Newsletter"],
         legal: ["Affiliate Disclosure", "Privacy", "Terms"],
       },
+      socialAria: "Social media",
+      socialIg: "Instagram",
+      socialYt: "YouTube",
+      socialTt: "TikTok",
+      socialRss: "RSS",
     },
   },
   meta: {

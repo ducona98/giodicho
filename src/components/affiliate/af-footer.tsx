@@ -51,11 +51,11 @@ export function AfFooter({ t, locale }: Props) {
 
       <div className="af-footer__bottom">
         <span>{f.copy}</span>
-        <div className="social" aria-label="Social">
-          <a href="#" aria-label="Instagram"><AfIcon name="ig" size={14} /></a>
-          <a href="#" aria-label="YouTube"><AfIcon name="yt" size={14} /></a>
-          <a href="#" aria-label="TikTok"><AfIcon name="tt" size={14} /></a>
-          <a href="#" aria-label="RSS"><AfIcon name="rss" size={14} /></a>
+        <div className="social" aria-label={f.socialAria}>
+          <a href="#" aria-label={f.socialIg}><AfIcon name="ig" size={14} /></a>
+          <a href="#" aria-label={f.socialYt}><AfIcon name="yt" size={14} /></a>
+          <a href="#" aria-label={f.socialTt}><AfIcon name="tt" size={14} /></a>
+          <a href="#" aria-label={f.socialRss}><AfIcon name="rss" size={14} /></a>
         </div>
       </div>
     </footer>

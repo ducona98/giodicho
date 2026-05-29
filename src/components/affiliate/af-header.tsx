@@ -47,12 +47,12 @@ export function AfHeader({ t, locale, savedCount = 12 }: Props) {
     <>
       <a className="skip-link" href="#main">{ui.skipToContent}</a>
       <header className={`af-header${scrolled ? " is-scrolled" : ""}`} role="banner">
-        <Link href={`/${locale}`} className="af-logo" aria-label="Giodicho — home">
+        <Link href={`/${locale}`} className="af-logo" aria-label={ui.homeAria}>
           <span className="mark" aria-hidden="true" />
           <span>Giodicho</span>
         </Link>
 
-        <nav className="af-nav" aria-label="Primary">
+        <nav className="af-nav" aria-label={ui.primaryNavAria}>
           <Link href={`/${locale}`} className="active">{n.home}</Link>
           <a href="#collections">{n.collections}</a>
           <Link href={`/${locale}/best-picks`}>{n.best}</Link>
