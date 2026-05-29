@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { AffiliateCategory } from "@/i18n/affiliate-data";
@@ -23,7 +24,7 @@ export function AfCollectionCard({ category: c, t, locale, featured, href = "#co
     : null;
   const cls = `af-cat${featured ? " featured" : ""}${className ? " " + className : ""}`;
   return (
-    <a href={href} className={cls} aria-label={c[locale]}>
+    <Link href={href} className={cls} aria-label={c[locale]}>
       <div className="af-cat__ph" style={style} />
       {c.badge && badgeLabel && (
         <span className="af-cat__badge">
@@ -35,6 +36,6 @@ export function AfCollectionCard({ category: c, t, locale, featured, href = "#co
         <h3>{c[locale]}</h3>
         <p>{c.desc[locale]}</p>
       </div>
-    </a>
+    </Link>
   );
 }

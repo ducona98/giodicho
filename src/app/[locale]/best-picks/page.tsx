@@ -17,6 +17,7 @@ import { AfEditorNote } from "@/components/affiliate/af-editor-note";
 import { AfArticleCard } from "@/components/affiliate/af-article-card";
 import { AfDisclosure } from "@/components/affiliate/af-disclosure";
 import { AfBestPicksBoard, type BestPick } from "@/components/affiliate/best-picks-board";
+import { JsonLd, itemListLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string };
 
@@ -31,6 +32,7 @@ export async function generateMetadata({
   const bp = t.affiliate.bestPicks;
   const title = `${bp.title} ${bp.titleAccent} — Giodicho`;
   const description = bp.lead;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title,
     description,
@@ -45,9 +47,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -83,6 +91,7 @@ export default function BestPicksPage({ params }: { params: RouteParams }) {
           <div>
             <AfBreadcrumb
               className="af-coll-hero__breadcrumb"
+              jsonld
               ariaLabel={bp.breadcrumbAria}
               items={[
                 { label: bp.breadcrumbHome, href: `/${locale}` },
@@ -192,6 +201,13 @@ export default function BestPicksPage({ params }: { params: RouteParams }) {
             <AfDisclosure t={t} />
           </div>
         </section>
+        <JsonLd data={itemListLd(
+          picks.map((pick) => ({
+            name: pick.product.name[locale],
+            url: `/${locale}/p/${pick.product.slug ?? pick.product.id}`,
+          })),
+          `${bp.title} ${bp.titleAccent}`
+        )} />
       </main>
       <AfFooter t={t} locale={locale} />
     </div>

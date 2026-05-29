@@ -10,6 +10,7 @@ import { isLocale, LOCALES, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { ThemeProvider } from "@/components/theme-provider";
 import { RevealRoot } from "@/components/reveal";
+import { JsonLd, organizationLd, webSiteLd } from "@/lib/jsonld";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin", "latin-ext"],
@@ -37,7 +38,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LayoutParams): Promise<Metadata> {
   if (!isLocale(params.locale)) return {};
   const t = getDictionary(params.locale);
+  const ogLoc = params.locale === "vi" ? "vi_VN" : "en_US";
   return {
+    metadataBase: new URL("https://giodicho.com"),
     title: t.meta.title,
     description: t.meta.description,
     alternates: {
@@ -47,8 +50,15 @@ export async function generateMetadata({ params }: LayoutParams): Promise<Metada
     openGraph: {
       title: t.meta.title,
       description: t.meta.description,
-      locale: params.locale,
+      locale: ogLoc,
       type: "website",
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.meta.title,
+      description: t.meta.description,
     },
   };
 }
@@ -73,6 +83,8 @@ export default function LocaleLayout({ children, params }: { children: ReactNode
         <style dangerouslySetInnerHTML={{ __html: fontVarStyle }} />
       </head>
       <body>
+        <JsonLd data={organizationLd()} />
+        <JsonLd data={webSiteLd(locale)} />
         <ThemeProvider>
           {children}
           <RevealRoot />

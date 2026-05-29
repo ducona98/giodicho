@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { AfHeader } from "@/components/affiliate/af-header";
@@ -15,6 +16,33 @@ import { AfGiftBudgetSection } from "@/components/affiliate/gift-budget";
 import { AfMerchantTrustSection } from "@/components/affiliate/merchant-trust";
 import { AfTestimonialsSection } from "@/components/affiliate/testimonials";
 import { AfNewsletterSection } from "@/components/affiliate/newsletter-section";
+
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  if (!isLocale(params.locale)) return {};
+  const t = getDictionary(params.locale);
+  const ogLoc = params.locale === "vi" ? "vi_VN" : "en_US";
+  return {
+    title: t.meta.title,
+    description: t.meta.description,
+    alternates: {
+      canonical: `/${params.locale}`,
+      languages: { vi: "/vi", en: "/en", "x-default": "/en" },
+    },
+    openGraph: {
+      title: t.meta.title,
+      description: t.meta.description,
+      locale: ogLoc,
+      type: "website",
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.meta.title,
+      description: t.meta.description,
+    },
+  };
+}
 
 export default function HomePage({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) notFound();

@@ -23,6 +23,7 @@ export async function generateMetadata({
   const cp = t.affiliate.comparePage;
   const title = `${cp.title} ${cp.titleAccent} — Giodicho`;
   const description = cp.lead;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title,
     description,
@@ -37,9 +38,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -66,6 +73,7 @@ export default function ComparePage({ params }: { params: RouteParams }) {
           <div>
             <AfBreadcrumb
               className="af-coll-hero__breadcrumb"
+              jsonld
               ariaLabel={cp.breadcrumbAria}
               items={[
                 { label: cp.breadcrumbHome, href: `/${locale}` },

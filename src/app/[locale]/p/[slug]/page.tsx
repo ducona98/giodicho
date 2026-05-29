@@ -22,6 +22,7 @@ import { AfBadge } from "@/components/affiliate/af-badge";
 import { AfRatingScore } from "@/components/affiliate/af-rating-score";
 import { AfProductCard } from "@/components/affiliate/af-product-card";
 import { AfIcon } from "@/components/affiliate/af-icon";
+import { JsonLd, productLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string; slug: string };
 
@@ -48,6 +49,7 @@ export async function generateMetadata({
   const category = product.cat[locale];
   const description = product.description?.[locale] ?? product.why[locale];
   const slug = product.slug ?? product.id;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title: `${name} — ${category} | Giodicho`,
     description,
@@ -62,9 +64,15 @@ export async function generateMetadata({
     openGraph: {
       title: `${name} — ${category}`,
       description,
-      locale,
-      type: "article",
-      siteName: t.meta.title,
+      locale: ogLoc,
+      type: "website",
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${name} — ${category}`,
+      description,
     },
   };
 }
@@ -118,6 +126,7 @@ export default function ProductDetailPage({ params }: { params: RouteParams }) {
       <AfHeader t={t} locale={locale} />
       <main id="main">
         <AfBreadcrumb
+          jsonld
           ariaLabel={pd.breadcrumbAria}
           items={[
             { label: pd.breadcrumbHome, href: `/${locale}` },
@@ -251,7 +260,7 @@ export default function ProductDetailPage({ params }: { params: RouteParams }) {
         {faqs.length > 0 && (
           <section className="af-pd-section" aria-labelledby="pdp-faq">
             <h2 id="pdp-faq">{pd.faqTitle}</h2>
-            <AfFaq faqs={faqs} locale={locale} />
+            <AfFaq faqs={faqs} locale={locale} jsonld />
           </section>
         )}
 
@@ -279,6 +288,7 @@ export default function ProductDetailPage({ params }: { params: RouteParams }) {
         <section className="af-pd-section" aria-label={t.affiliate.disclosure.full}>
           <AfDisclosure t={t} />
         </section>
+        <JsonLd data={productLd(product, locale, "https://giodicho.com")} />
       </main>
       <AfMobileBuybar product={product} t={t} locale={locale} />
       <AfFooter t={t} locale={locale} />

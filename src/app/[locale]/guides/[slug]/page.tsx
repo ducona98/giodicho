@@ -19,6 +19,7 @@ import { AfProductCard } from "@/components/affiliate/af-product-card";
 import { AfArticleCard } from "@/components/affiliate/af-article-card";
 import { AfFaq } from "@/components/affiliate/af-faq";
 import { AfDisclosure } from "@/components/affiliate/af-disclosure";
+import { JsonLd, articleLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string; slug: string };
 
@@ -42,6 +43,7 @@ export async function generateMetadata({
   const title = article.title[locale];
   const description = article.excerpt[locale];
   const slug = article.slug ?? article.id;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title: `${title} | Giodicho`,
     description,
@@ -56,9 +58,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      locale,
+      locale: ogLoc,
       type: "article",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -90,6 +98,7 @@ export default function ArticlePage({ params }: { params: RouteParams }) {
       <AfHeader t={t} locale={locale} />
       <main id="main">
         <AfBreadcrumb
+          jsonld
           ariaLabel={ad.breadcrumbAria}
           items={[
             { label: ad.breadcrumbHome, href: `/${locale}` },
@@ -161,7 +170,7 @@ export default function ArticlePage({ params }: { params: RouteParams }) {
         {faqs.length > 0 && (
           <section className="af-pd-section" aria-labelledby="art-faq">
             <h2 id="art-faq">{ad.faqTitle}</h2>
-            <AfFaq faqs={faqs} locale={locale} />
+            <AfFaq faqs={faqs} locale={locale} jsonld />
           </section>
         )}
 
@@ -188,6 +197,7 @@ export default function ArticlePage({ params }: { params: RouteParams }) {
         <section className="af-pd-section" aria-label={t.affiliate.disclosure.full}>
           <AfDisclosure t={t} />
         </section>
+        <JsonLd data={articleLd(article, locale, "https://giodicho.com")} />
       </main>
       <AfFooter t={t} locale={locale} />
     </div>

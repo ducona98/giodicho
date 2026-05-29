@@ -11,6 +11,7 @@ import { AfBreadcrumb } from "@/components/affiliate/af-breadcrumb";
 import { AfSectionHead } from "@/components/affiliate/af-section-head";
 import { AfGuidesBoard } from "@/components/affiliate/guides-board";
 import { AfNewsletterSection } from "@/components/affiliate/newsletter-section";
+import { JsonLd, itemListLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string };
 
@@ -25,6 +26,7 @@ export async function generateMetadata({
   const g = t.affiliate.guidesPage;
   const title = `${g.title} ${g.titleAccent} — Giodicho`;
   const description = g.lead;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title,
     description,
@@ -39,9 +41,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -68,6 +76,7 @@ export default function GuidesPage({ params }: { params: RouteParams }) {
           <div>
             <AfBreadcrumb
               className="af-coll-hero__breadcrumb"
+              jsonld
               ariaLabel={g.breadcrumbAria}
               items={[
                 { label: g.breadcrumbHome, href: `/${locale}` },
@@ -128,6 +137,13 @@ export default function GuidesPage({ params }: { params: RouteParams }) {
           </section>
         )}
 
+        <JsonLd data={itemListLd(
+          articles.map((a) => ({
+            name: a.title[locale],
+            url: `/${locale}/guides/${a.slug ?? a.id}`,
+          })),
+          `${g.title} ${g.titleAccent}`
+        )} />
         <AfNewsletterSection t={t} />
       </main>
       <AfFooter t={t} locale={locale} />

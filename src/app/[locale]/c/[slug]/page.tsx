@@ -18,6 +18,7 @@ import { AfArticleCard } from "@/components/affiliate/af-article-card";
 import { AfCollectionCard } from "@/components/affiliate/af-collection-card";
 import { AfFaq } from "@/components/affiliate/af-faq";
 import { AfDisclosure } from "@/components/affiliate/af-disclosure";
+import { JsonLd, itemListLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string; slug: string };
 
@@ -39,6 +40,7 @@ export async function generateMetadata({
   const t = getDictionary(locale);
   const name = category[locale];
   const description = category.desc[locale];
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title: `${name} — Giodicho`,
     description,
@@ -53,9 +55,15 @@ export async function generateMetadata({
     openGraph: {
       title: `${name} — Giodicho`,
       description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${name} — Giodicho`,
+      description,
     },
   };
 }
@@ -95,6 +103,7 @@ export default function CollectionPage({ params }: { params: RouteParams }) {
           <div>
             <AfBreadcrumb
               className="af-coll-hero__breadcrumb"
+              jsonld
               ariaLabel={c.breadcrumbAria}
               items={[
                 { label: c.breadcrumbHome, href: `/${locale}` },
@@ -164,7 +173,7 @@ export default function CollectionPage({ params }: { params: RouteParams }) {
         <section className="af-section" aria-labelledby="coll-faq">
           <div className="af-container">
             <AfSectionHead id="coll-faq" title={c.faqTitle} />
-            <AfFaq faqs={c.faqs} locale={locale} />
+            <AfFaq faqs={c.faqs} locale={locale} jsonld />
           </div>
         </section>
 
@@ -198,6 +207,10 @@ export default function CollectionPage({ params }: { params: RouteParams }) {
             <AfDisclosure t={t} />
           </div>
         </section>
+        <JsonLd data={itemListLd(
+          products.map((p) => ({ name: p.name[locale], url: `/${locale}/p/${p.slug ?? p.id}` })),
+          name
+        )} />
       </main>
       <AfFooter t={t} locale={locale} />
     </div>

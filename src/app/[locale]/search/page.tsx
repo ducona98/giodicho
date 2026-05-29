@@ -24,6 +24,7 @@ export async function generateMetadata({
   const locale = params.locale as Locale;
   const t = getDictionary(locale);
   const s = t.affiliate.search;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   const title = `${s.label} — Giodicho`;
   return {
     title,
@@ -39,9 +40,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description: t.meta.description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: t.meta.description,
     },
   };
 }
@@ -61,6 +68,7 @@ export default function SearchPage({ params }: { params: RouteParams }) {
       <main id="main">
         <div className="af-container" style={{ paddingTop: 32, paddingBottom: 80 }}>
           <AfBreadcrumb
+            jsonld
             ariaLabel={s.breadcrumbAria}
             items={[
               { label: s.breadcrumbHome, href: `/${locale}` },

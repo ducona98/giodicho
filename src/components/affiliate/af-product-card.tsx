@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { AffiliateProduct } from "@/i18n/affiliate-data";
@@ -68,13 +69,20 @@ export function AfProductCard(props: Props) {
         <p className="af-pick__why">{p.why[locale]}</p>
         <div className="af-pick__bottom">
           <AfPriceDisplay price={p.priceLow} />
-          <a
-            href={href}
-            className="af-deal__cta"
-            rel={linkRel}
-          >
-            {ui.viewDeal} <AfIcon name="arrow" size={12} />
-          </a>
+          {isExternal ? (
+            <a
+              href={href}
+              className="af-deal__cta"
+              rel={linkRel}
+              target="_blank"
+            >
+              {ui.viewDeal} <AfIcon name="arrow" size={12} />
+            </a>
+          ) : (
+            <Link href={href} className="af-deal__cta">
+              {ui.viewDeal} <AfIcon name="arrow" size={12} />
+            </Link>
+          )}
         </div>
       </article>
     );
@@ -116,13 +124,20 @@ export function AfProductCard(props: Props) {
         </div>
       </div>
       <div className="af-product__cta">
-        <a
-          href={href}
-          className="primary"
-          rel={linkRel}
-        >
-          {ui.viewDeal} <AfIcon name="arrow" size={12} />
-        </a>
+        {isExternal ? (
+          <a
+            href={href}
+            className="primary"
+            rel={linkRel}
+            target="_blank"
+          >
+            {ui.viewDeal} <AfIcon name="arrow" size={12} />
+          </a>
+        ) : (
+          <Link href={href} className="primary">
+            {ui.viewDeal} <AfIcon name="arrow" size={12} />
+          </Link>
+        )}
         <button type="button" className="ghost">
           {ui.compare}
         </button>

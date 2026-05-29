@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
-    return [{ source: "/", destination: "/vi", permanent: false }];
+    return [{ source: "/", destination: "/vi", permanent: true }];
   },
 };
 

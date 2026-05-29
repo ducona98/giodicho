@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { AffiliateArticle } from "@/i18n/affiliate-data";
@@ -29,7 +30,7 @@ export function AfArticleCard({ article: a, t, locale, href = "#guides", classNa
         </div>
         <h3 className="af-article__title">{a.title[locale]}</h3>
         <p className="af-article__excerpt">{a.excerpt[locale]}</p>
-        <a href={href} className="af-article__read">{ui.readGuide} →</a>
+        <Link href={href} className="af-article__read">{ui.readGuide} →</Link>
       </div>
     </article>
   );

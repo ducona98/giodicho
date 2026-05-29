@@ -12,6 +12,7 @@ import { AfArticleCard } from "@/components/affiliate/af-article-card";
 import { AfProductCard } from "@/components/affiliate/af-product-card";
 import { AfDisclosure } from "@/components/affiliate/af-disclosure";
 import { AfDealsBoard } from "@/components/affiliate/deals-board";
+import { JsonLd, itemListLd } from "@/lib/jsonld";
 
 type RouteParams = { locale: string };
 
@@ -26,6 +27,7 @@ export async function generateMetadata({
   const d = t.affiliate.dealsPage;
   const title = `${d.title} ${d.titleAccent} — Giodicho`;
   const description = d.lead;
+  const ogLoc = locale === "vi" ? "vi_VN" : "en_US";
   return {
     title,
     description,
@@ -40,9 +42,15 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      locale,
+      locale: ogLoc,
       type: "website",
-      siteName: t.meta.title,
+      siteName: "Giodicho",
+      images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -75,6 +83,7 @@ export default function DealsPage({ params }: { params: RouteParams }) {
           <div>
             <AfBreadcrumb
               className="af-coll-hero__breadcrumb"
+              jsonld
               ariaLabel={d.breadcrumbAria}
               items={[
                 { label: d.breadcrumbHome, href: `/${locale}` },
@@ -183,6 +192,16 @@ export default function DealsPage({ params }: { params: RouteParams }) {
             <AfDisclosure t={t} />
           </div>
         </section>
+        <JsonLd data={itemListLd(
+          AFFILIATE_DATA.deals.map((deal) => {
+            const product = AFFILIATE_DATA.products.find((p) => p.id === deal.pid);
+            return {
+              name: product ? product.name[locale] : deal.pid,
+              url: product ? `/${locale}/p/${product.slug ?? product.id}` : "",
+            };
+          }).filter((item) => item.url),
+          `${d.title} ${d.titleAccent}`
+        )} />
       </main>
       <AfFooter t={t} locale={locale} />
     </div>
